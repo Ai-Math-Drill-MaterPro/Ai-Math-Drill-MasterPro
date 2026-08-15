@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><span class="lang-ja">Ai-Math-Drill/MasterPro | 次世代型AI学習プラットフォーム</span><span class="lang-en" style="display:none;">Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform</span></title>
-  <link rel="icon" href="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=64&auto=format&fit=crop">
+  <title id="site-title">Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><path d='M8 12h16M8 16h12M8 20h8' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round'/><circle cx='22' cy='20' r='2' fill='%2338bdf8'/></svg>">
   <style>
     :root {
       --primary: #0f172a;
@@ -61,22 +61,11 @@
       user-select: none;
     }
 
-    .brand-logo-container {
+    .brand-logo-svg {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 4px rgba(15,23,42,0.2);
-    }
-
-    .brand-logo {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 4px rgba(15,23,42,0.15));
     }
 
     .brand-text {
@@ -85,18 +74,48 @@
     }
 
     .brand-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .brand-title .main-name {
+      background: linear-gradient(135deg, #0f172a 30%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-title .divider {
+      color: #94a3b8;
+      font-weight: 400;
+      margin: 0 2px;
+    }
+
+    .brand-title .sub-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #2563eb;
+      background: #eff6ff;
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid #dbeafe;
+      letter-spacing: 0.02em;
     }
 
     .brand-subtitle {
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 700;
       color: var(--text-muted);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      margin-top: 1px;
     }
 
     .header-actions {
@@ -131,6 +150,10 @@
     }
 
     .lang-switch.en .lang-switch-handle {
+      transform: translateX(0px);
+    }
+
+    .lang-switch:not(.en) .lang-switch-handle {
       transform: translateX(67px);
     }
 
@@ -146,8 +169,8 @@
       transition: color 0.2s;
     }
 
-    .lang-switch:not(.en) .lang-opt-ja,
-    .lang-switch.en .lang-opt-en {
+    .lang-switch.en .lang-opt-en,
+    .lang-switch:not(.en) .lang-opt-ja {
       color: var(--primary);
     }
 
@@ -401,10 +424,9 @@
       color: var(--text-main);
     }
 
-    .footer-logo {
+    .footer-logo-svg {
       width: 20px;
       height: 20px;
-      object-fit: contain;
     }
 
     #launcher {
@@ -417,6 +439,14 @@
       flex-direction: column;
       gap: 24px;
       z-index: 50;
+    }
+
+    .launcher-top-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .launcher-controls {
@@ -529,52 +559,92 @@
     }
   </style>
 </head>
-<body>
+<body class="en-mode">
 
   <div id="camouflage">
     <header>
       <div class="brand" id="secret-trigger">
-        <div class="brand-logo-container">
-          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=100&auto=format&fit=crop" alt="Logo" class="brand-logo">
-        </div>
+        <svg class="brand-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+          <defs>
+            <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0f172a" />
+              <stop offset="100%" stop-color="#2563eb" />
+            </linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="10" fill="url(#brand-grad)" />
+          <path d="M10 28L28 10M14 10H30V26" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="28" cy="12" r="2.5" fill="#ffffff" />
+          <path d="M12 22H22" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2 2" />
+        </svg>
         <div class="brand-text">
-          <div class="brand-title">Ai-Math-Drill / MasterPro</div>
-          <div class="brand-subtitle"><span class="lang-ja">次世代型AI学習プラットフォーム</span><span class="lang-en" style="display:none;">Next-Gen AI Learning Platform</span></div>
+          <div class="brand-title">
+            <span class="main-name">Ai-Math-Drill</span>
+            <span class="divider">/</span>
+            <span class="sub-name">MasterPro</span>
+          </div>
+          <div class="brand-subtitle">
+            <span class="lang-en">Next-Gen AI Learning Platform</span>
+            <span class="lang-ja" style="display:none;">次世代型AI学習プラットフォーム</span>
+          </div>
         </div>
       </div>
       <div class="header-actions">
-        <div class="lang-switch" id="lang-switch">
+        <div class="lang-switch en" id="lang-switch">
           <div class="lang-switch-handle"></div>
-          <div class="lang-option lang-opt-ja">JP</div>
           <div class="lang-option lang-opt-en">EN</div>
+          <div class="lang-option lang-opt-ja">JP</div>
         </div>
-        <div class="header-tag"><span class="lang-ja">スタンダード版</span><span class="lang-en" style="display:none;">Standard Edition</span></div>
+        <div class="header-tag">
+          <span class="lang-en">Standard Edition</span>
+          <span class="lang-ja" style="display:none;">スタンダード版</span>
+        </div>
       </div>
     </header>
 
     <div class="content-wrapper">
       <div class="top-section">
         <div class="login-card">
-          <h2><span class="lang-ja">受講生ログイン</span><span class="lang-en" style="display:none;">Student Login</span></h2>
-          <p><span class="lang-ja">IDとパスワードを入力して演習画面へ進んでください。</span><span class="lang-en" style="display:none;">Enter your ID and password to access the practice portal.</span></p>
+          <h2>
+            <span class="lang-en">Student Login</span>
+            <span class="lang-ja" style="display:none;">受講生ログイン</span>
+          </h2>
+          <p>
+            <span class="lang-en">Enter your ID and password to access the practice portal.</span>
+            <span class="lang-ja" style="display:none;">IDとパスワードを入力して演習画面へ進んでください。</span>
+          </p>
           <form id="login-form">
             <div class="form-group">
-              <label><span class="lang-ja">受講生ID</span><span class="lang-en" style="display:none;">Student ID</span></label>
-              <input type="text" class="form-control" placeholder="例: 12345678" required>
+              <label>
+                <span class="lang-en">Student ID</span>
+                <span class="lang-ja" style="display:none;">受講生ID</span>
+              </label>
+              <input type="text" class="form-control" data-placeholder-en="e.g. 12345678" data-placeholder-ja="例: 12345678" placeholder="e.g. 12345678" required>
             </div>
             <div class="form-group">
-              <label><span class="lang-ja">パスワード</span><span class="lang-en" style="display:none;">Password</span></label>
+              <label>
+                <span class="lang-en">Password</span>
+                <span class="lang-ja" style="display:none;">パスワード</span>
+              </label>
               <input type="password" class="form-control" placeholder="••••••••" required>
             </div>
-            <button type="submit" class="submit-btn"><span class="lang-ja">ログイン</span><span class="lang-en" style="display:none;">Sign In</span></button>
+            <button type="submit" class="submit-btn">
+              <span class="lang-en">Sign In</span>
+              <span class="lang-ja" style="display:none;">ログイン</span>
+            </button>
           </form>
         </div>
 
         <div class="banner-card">
           <div class="banner-img"></div>
           <div class="banner-body">
-            <h3><span class="lang-ja">個別最適化学習プログラム</span><span class="lang-en" style="display:none;">Personalized Learning Program</span></h3>
-            <p><span class="lang-ja">単元ごとの定着度を自動判定し、一人ひとりの習熟度に応じた演習問題を自動で出題します。基礎から発展まで効率的なステップアップをサポート。</span><span class="lang-en" style="display:none;">Automatically assesses mastery levels by unit and generates practice questions tailored to each student's proficiency, supporting efficient step-by-step progress.</span></p>
+            <h3>
+              <span class="lang-en">Personalized Learning Program</span>
+              <span class="lang-ja" style="display:none;">個別最適化学習プログラム</span>
+            </h3>
+            <p>
+              <span class="lang-en">Automatically assesses mastery levels by unit and generates practice questions tailored to each student's proficiency, supporting efficient step-by-step progress.</span>
+              <span class="lang-ja" style="display:none;">単元ごとの定着度を自動判定し、一人ひとりの習熟度に応じた演習問題を自動で出題します。基礎から発展まで効率的なステップアップをサポート。</span>
+            </p>
           </div>
         </div>
       </div>
@@ -583,40 +653,67 @@
         <div class="feature-card">
           <div class="feature-img feature-1"></div>
           <div class="feature-body">
-            <strong><span class="lang-ja">リアルタイム解析</span><span class="lang-en" style="display:none;">Real-Time Analytics</span></strong>
-            <span class="lang-ja">解答スピードや正答率を多角的に分析し、現在の習熟度を可視化します。</span><span class="lang-en" style="display:none;">Multi-dimensionally analyzes answer speed and accuracy to visualize current proficiency.</span>
+            <strong>
+              <span class="lang-en">Real-Time Analytics</span>
+              <span class="lang-ja" style="display:none;">リアルタイム解析</span>
+            </strong>
+            <span class="lang-en">Multi-dimensionally analyzes answer speed and accuracy to visualize current proficiency.</span>
+            <span class="lang-ja" style="display:none;">解答スピードや正答率を多角的に分析し、現在の習熟度を可視化します。</span>
           </div>
         </div>
         <div class="feature-card">
           <div class="feature-img feature-2"></div>
           <div class="feature-body">
-            <strong><span class="lang-ja">弱点自動補強</span><span class="lang-en" style="display:none;">Automated Weakness Remediation</span></strong>
-            <span class="lang-ja">間違えた問題の傾向から根本的なつまずき原因を特定し、重点的に出題します。</span><span class="lang-en" style="display:none;">Identifies core stumbling blocks from mistake patterns and targets them with focused drills.</span>
+            <strong>
+              <span class="lang-en">Automated Weakness Remediation</span>
+              <span class="lang-ja" style="display:none;">弱点自動補強</span>
+            </strong>
+            <span class="lang-en">Identifies core stumbling blocks from mistake patterns and targets them with focused drills.</span>
+            <span class="lang-ja" style="display:none;">間違えた問題の傾向から根本的なつまずき原因を特定し、重点的に出題します。</span>
           </div>
         </div>
         <div class="feature-card">
           <div class="feature-img feature-3"></div>
           <div class="feature-body">
-            <strong><span class="lang-ja">詳細な進捗レポート</span><span class="lang-en" style="display:none;">Comprehensive Progress Reports</span></strong>
-            <span class="lang-ja">日々の学習成果をグラフや数値でわかりやすく確認・管理できます。</span><span class="lang-en" style="display:none;">Easily track and manage daily learning achievements through clear graphs and metrics.</span>
+            <strong>
+              <span class="lang-en">Comprehensive Progress Reports</span>
+              <span class="lang-ja" style="display:none;">詳細な進捗レポート</span>
+            </strong>
+            <span class="lang-en">Easily track and manage daily learning achievements through clear graphs and metrics.</span>
+            <span class="lang-ja" style="display:none;">日々の学習成果をグラフや数値でわかりやすく確認・管理できます。</span>
           </div>
         </div>
       </div>
 
       <div class="info-section">
-        <h3><span class="lang-ja">システム概要・利用案内</span><span class="lang-en" style="display:none;">System Overview & Guidelines</span></h3>
+        <h3>
+          <span class="lang-en">System Overview & Guidelines</span>
+          <span class="lang-ja" style="display:none;">システム概要・利用案内</span>
+        </h3>
         <div class="info-grid">
           <div class="info-box">
-            <strong><span class="lang-ja">カリキュラムについて</span><span class="lang-en" style="display:none;">About the Curriculum</span></strong>
-            <span class="lang-ja">中学数学の全単元に対応。演習問題の解答履歴から弱点を自動抽出し、復習用カリキュラムを随時最適化します。</span><span class="lang-en" style="display:none;">Covers all junior high math units. Automatically extracts weaknesses from historical answers to optimize review curricula.</span>
+            <strong>
+              <span class="lang-en">About the Curriculum</span>
+              <span class="lang-ja" style="display:none;">カリキュラムについて</span>
+            </strong>
+            <span class="lang-en">Covers all junior high math units. Automatically extracts weaknesses from historical answers to optimize review curricula.</span>
+            <span class="lang-ja" style="display:none;">中学数学の全単元に対応。演習問題の解答履歴から弱点を自動抽出し、復習用カリキュラムを随時最適化します。</span>
           </div>
           <div class="info-box">
-            <strong><span class="lang-ja">動作環境</span><span class="lang-en" style="display:none;">System Requirements</span></strong>
-            <span class="lang-ja">PC、タブレット、スマートフォン各端末のブラウザに対応しています。安定した通信環境下でご利用ください。</span><span class="lang-en" style="display:none;">Compatible with modern web browsers on PCs, tablets, and smartphones. Please use a stable connection.</span>
+            <strong>
+              <span class="lang-en">System Requirements</span>
+              <span class="lang-ja" style="display:none;">動作環境</span>
+            </strong>
+            <span class="lang-en">Compatible with modern web browsers on PCs, tablets, and smartphones. Please use a stable connection.</span>
+            <span class="lang-ja" style="display:none;">PC、タブレット、スマートフォン各端末のブラウザに対応しています。安定した通信環境下でご利用ください。</span>
           </div>
           <div class="info-box">
-            <strong><span class="lang-ja">運営・お問い合わせ</span><span class="lang-en" style="display:none;">Operation & Inquiries</span></strong>
-            <span class="lang-ja">株式会社エデュケーション・テクノロジーズ<br>東京都千代田区千代田 1-1<br>TEL: 050-5742-6546</span><span class="lang-en" style="display:none;">Education Technologies Corp.<br>1-1 Chiyoda, Chiyoda-ku, Tokyo<br>TEL: 050-5742-6546</span>
+            <strong>
+              <span class="lang-en">Operation & Inquiries</span>
+              <span class="lang-ja" style="display:none;">運営・お問い合わせ</span>
+            </strong>
+            <span class="lang-en">Education Technologies Corp.<br>2-10-2 Hyakunincho, Shinjuku-ku, Tokyo<br>TEL: 050-5742-6546</span>
+            <span class="lang-ja" style="display:none;">株式会社エデュケーション・テクノロジーズ<br>東京都新宿区百人町2丁目10-2<br>TEL: 050-5742-6546</span>
           </div>
         </div>
       </div>
@@ -624,7 +721,10 @@
 
     <footer>
       <div class="footer-brand">
-        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=100&auto=format&fit=crop" alt="Logo" class="footer-logo">
+        <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+          <rect width="40" height="40" rx="8" fill="#0f172a" />
+          <path d="M10 28L28 10M14 10H30V26" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
         <span>Education Technologies Corp.</span>
       </div>
       <div>&copy; Education Technologies Corp. All rights reserved.</div>
@@ -632,18 +732,33 @@
   </div>
 
   <div id="launcher">
+    <div class="launcher-top-bar">
+      <div class="lang-switch en" id="launcher-lang-switch">
+        <div class="lang-switch-handle"></div>
+        <div class="lang-option lang-opt-en">EN</div>
+        <div class="lang-option lang-opt-ja">JP</div>
+      </div>
+    </div>
     <div class="launcher-controls">
       <div class="ctrl-row">
-        <span>アプリケーションランチャー</span>
+        <span class="launcher-label-text">
+          <span class="lang-en">Application Launcher</span>
+          <span class="lang-ja" style="display:none;">アプリケーションランチャー</span>
+        </span>
         <label class="toggle-label">
-          <input type="checkbox" id="iframe-toggle" checked> サイト内表示 (iframe) を有効にする
+          <input type="checkbox" id="iframe-toggle" checked> 
+          <span class="lang-en">Enable in-site display (iframe)</span>
+          <span class="lang-ja" style="display:none;">サイト内表示 (iframe) を有効にする</span>
         </label>
       </div>
       <div class="input-group">
         <input type="text" id="custom-url-input" class="launcher-input" placeholder="https://..." autocomplete="off">
-        <button id="custom-url-btn" class="btn-launch">開く</button>
+        <button id="custom-url-btn" class="btn-launch">
+          <span class="lang-en">Open</span>
+          <span class="lang-ja" style="display:none;">開く</span>
+        </button>
       </div>
-      <input type="text" id="search-input" class="launcher-input" placeholder="サイトを検索..." autocomplete="off">
+      <input type="text" id="search-input" class="launcher-input" data-placeholder-en="Search sites..." data-placeholder-ja="サイトを検索..." placeholder="Search sites..." autocomplete="off">
     </div>
 
     <div class="launcher-grid" id="grid">
@@ -699,26 +814,49 @@
       e.preventDefault();
     });
 
-    // Language switch functionality (Slider style)
-    const langSwitch = document.getElementById('lang-switch');
-    langSwitch.addEventListener('click', () => {
-      langSwitch.classList.toggle('en');
-      const isEn = langSwitch.classList.contains('en');
+    const siteTitle = document.getElementById('site-title');
+    const searchInput = document.getElementById('search-input');
+
+    function updatePageTitle(isEn) {
+      const launcherActive = document.getElementById('launcher').style.display === 'flex';
+      if (launcherActive) {
+        siteTitle.textContent = isEn ? "App Launcher" : "アプリランチャー";
+      } else {
+        siteTitle.textContent = isEn ? "Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform" : "Ai-Math-Drill/MasterPro | 次世代型AI学習プラットフォーム";
+      }
+    }
+
+    function toggleLanguage() {
+      const body = document.body;
+      const isEn = body.classList.toggle('en-mode');
       
-      document.querySelectorAll('.lang-ja').forEach(el => {
-        el.style.display = isEn ? 'none' : 'inline';
+      document.querySelectorAll('#lang-switch, #launcher-lang-switch').forEach(sw => {
+        if (isEn) {
+          sw.classList.add('en');
+        } else {
+          sw.classList.remove('en');
+        }
       });
+      
       document.querySelectorAll('.lang-en').forEach(el => {
         el.style.display = isEn ? 'inline' : 'none';
       });
+      document.querySelectorAll('.lang-ja').forEach(el => {
+        el.style.display = isEn ? 'none' : 'inline';
+      });
+
+      document.querySelectorAll('input[data-placeholder-en]').forEach(input => {
+        input.placeholder = isEn ? input.getAttribute('data-placeholder-en') : input.getAttribute('data-placeholder-ja');
+      });
       
-      // Update document title dynamically
-      if (isEn) {
-        document.title = "Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform";
-      } else {
-        document.title = "Ai-Math-Drill/MasterPro | 次世代型AI学習プラットフォーム";
-      }
-    });
+      updatePageTitle(isEn);
+    }
+
+    const langSwitch = document.getElementById('lang-switch');
+    const launcherLangSwitch = document.getElementById('launcher-lang-switch');
+    
+    langSwitch.addEventListener('click', toggleLanguage);
+    launcherLangSwitch.addEventListener('click', toggleLanguage);
 
     let clickCount = 0;
     let lastClickTime = 0;
@@ -735,14 +873,14 @@
       if (clickCount >= 5) {
         document.getElementById('camouflage').style.display = 'none';
         document.getElementById('launcher').style.display = 'flex';
-        document.title = "App Launcher";
+        const isEn = document.body.classList.contains('en-mode');
+        updatePageTitle(isEn);
         clickCount = 0;
       }
     });
 
     const iframe = document.getElementById("game-iframe");
     const launcher = document.getElementById("launcher");
-    const searchInput = document.getElementById("search-input");
     const customUrlInput = document.getElementById("custom-url-input");
     const customUrlBtn = document.getElementById("custom-url-btn");
     const cards = document.querySelectorAll(".launcher-card");
