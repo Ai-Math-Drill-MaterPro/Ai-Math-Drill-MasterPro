@@ -15,6 +15,8 @@
       --text-main: #0f172a;
       --text-muted: #475569;
       --border: #e2e8f0;
+      --success: #16a34a;
+      --danger: #dc2626;
     }
 
     * {
@@ -26,11 +28,15 @@
 
     html, body {
       width: 100%;
-      height: 100%;
+      min-height: 100%;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg-main);
       color: var(--text-main);
       overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
     }
 
     #camouflage {
@@ -162,7 +168,7 @@
     }
 
     .lang-switch.en .lang-switch-handle {
-      transform: translateX(0px);
+      transform: translateX(0);
     }
 
     .lang-switch:not(.en) .lang-switch-handle {
@@ -302,6 +308,13 @@
       background: var(--primary-hover);
     }
 
+    .login-error {
+      color: var(--danger);
+      font-size: 12px;
+      margin-top: 10px;
+      min-height: 16px;
+    }
+
     .banner-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -363,9 +376,17 @@
       background-position: center;
     }
 
-    .feature-1 { background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop'); }
-    .feature-2 { background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600&auto=format&fit=crop'); }
-    .feature-3 { background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=600&auto=format&fit=crop'); }
+    .feature-1 {
+      background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop');
+    }
+
+    .feature-2 {
+      background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=600&auto=format&fit=crop');
+    }
+
+    .feature-3 {
+      background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=600&auto=format&fit=crop');
+    }
 
     .feature-body {
       padding: 18px;
@@ -441,6 +462,330 @@
     .footer-logo-svg {
       width: 20px;
       height: 20px;
+    }
+
+    #learning-screen {
+      display: none;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .learning-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .welcome-area h1 {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .welcome-area p {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .account-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .secondary-btn,
+    .danger-btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .secondary-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .danger-btn {
+      color: var(--danger);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .stat-value {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-small {
+      color: #64748b;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .history-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .history-card h2 {
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .history-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 10px;
+      padding: 11px 10px;
+      border-radius: 8px;
+      background: #f8fafc;
+      font-size: 12px;
+      align-items: center;
+    }
+
+    .history-row span:not(:first-child) {
+      text-align: right;
+    }
+
+    .start-panel {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      border-radius: 14px;
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .start-panel h2 {
+      font-size: 19px;
+      margin-bottom: 5px;
+    }
+
+    .start-panel p {
+      color: #cbd5e1;
+      font-size: 12px;
+    }
+
+    .start-btn {
+      background: #fff;
+      color: #0f172a;
+      border: none;
+      border-radius: 9px;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .problem-section {
+      display: none;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .problem-number {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .problem-type {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: #eff6ff;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .problem-text {
+      font-size: 19px;
+      line-height: 1.65;
+      font-weight: 650;
+      margin-bottom: 20px;
+      white-space: pre-line;
+    }
+
+    .answer-area {
+      display: grid;
+      gap: 10px;
+    }
+
+    .answer-input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .answer-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+    }
+
+    .choice-btn {
+      text-align: left;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 13px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .choice-btn:hover {
+      border-color: var(--accent);
+      background: #f8fbff;
+    }
+
+    .choice-btn.selected {
+      border-color: var(--accent);
+      background: #eff6ff;
+    }
+
+    .answer-submit {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .answer-result {
+      min-height: 24px;
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .correct {
+      color: var(--success);
+    }
+
+    .incorrect {
+      color: var(--danger);
+    }
+
+    .next-btn {
+      display: none;
+      margin-top: 10px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .name-dialog {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15,23,42,.5);
+      z-index: 500;
+      padding: 20px;
+    }
+
+    .name-dialog-card {
+      background: white;
+      border-radius: 13px;
+      padding: 22px;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .name-dialog-card h3 {
+      margin-bottom: 12px;
+      font-size: 17px;
+    }
+
+    .name-dialog-card input {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 10px;
+    }
+
+    .dialog-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dialog-actions button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .dialog-actions .save-name {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
     }
 
     #launcher {
@@ -558,7 +903,7 @@
       height: 100vh;
       border: none;
       display: none;
-      position: absolute;
+      position: fixed;
       inset: 0;
       z-index: 10;
     }
@@ -567,21 +912,50 @@
       header {
         padding: 10px 14px;
       }
+
       .top-section {
         grid-template-columns: 1fr;
       }
+
       .features-grid {
         grid-template-columns: 1fr;
       }
+
       .info-grid {
         grid-template-columns: 1fr;
       }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
       .content-wrapper {
         padding: 16px 12px;
         gap: 16px;
       }
+
+      #learning-screen {
+        padding: 18px 12px 30px;
+      }
+
       .launcher-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .history-row {
+        grid-template-columns: 1.3fr 1fr 1fr;
+      }
+
+      .history-row span:nth-child(3) {
+        display: none;
+      }
+
+      .problem-text {
+        font-size: 17px;
+      }
+
+      .header-tag {
+        display: none;
       }
     }
   </style>
@@ -594,14 +968,14 @@
         <svg class="brand-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
           <defs>
             <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0f172a" />
-              <stop offset="100%" stop-color="#2563eb" />
+              <stop offset="0%" stop-color="#0f172a"/>
+              <stop offset="100%" stop-color="#2563eb"/>
             </linearGradient>
           </defs>
-          <rect width="40" height="40" rx="10" fill="url(#brand-grad)" />
+          <rect width="40" height="40" rx="10" fill="url(#brand-grad)"/>
           <path d="M10 28L28 10M14 10H30V26" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="28" cy="12" r="2.5" fill="#ffffff" />
-          <path d="M12 22H22" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2 2" />
+          <circle cx="28" cy="12" r="2.5" fill="#ffffff"/>
+          <path d="M12 22H22" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2 2"/>
         </svg>
         <div class="brand-text">
           <div class="brand-title">
@@ -615,6 +989,7 @@
           </div>
         </div>
       </div>
+
       <div class="header-actions">
         <div class="lang-switch en" id="lang-switch">
           <div class="lang-switch-handle"></div>
@@ -628,7 +1003,7 @@
       </div>
     </header>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" id="login-content">
       <div class="top-section">
         <div class="login-card">
           <h2>
@@ -639,25 +1014,51 @@
             <span class="lang-en">Enter your ID and password to access the practice portal.</span>
             <span class="lang-ja" style="display:none;">IDとパスワードを入力して演習画面へ進んでください。</span>
           </p>
+
           <form id="login-form">
             <div class="form-group">
               <label>
                 <span class="lang-en">Student ID</span>
                 <span class="lang-ja" style="display:none;">受講生ID</span>
               </label>
-              <input type="text" class="form-control" data-placeholder-en="e.g. 12345678" data-placeholder-ja="例: 12345678" placeholder="e.g. 12345678" required>
+              <input
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]{8}"
+                maxlength="8"
+                class="form-control"
+                data-placeholder-en="e.g. 12345678"
+                data-placeholder-ja="例: 12345678"
+                placeholder="e.g. 12345678"
+                id="student-id"
+                autocomplete="username"
+                required
+              >
             </div>
+
             <div class="form-group">
               <label>
                 <span class="lang-en">Password</span>
                 <span class="lang-ja" style="display:none;">パスワード</span>
               </label>
-              <input type="password" class="form-control" placeholder="••••••••" required>
+              <input
+                type="password"
+                inputmode="numeric"
+                pattern="[0-9]{8}"
+                maxlength="8"
+                class="form-control"
+                placeholder="••••••••"
+                id="student-password"
+                autocomplete="current-password"
+                required
+              >
             </div>
+
             <button type="submit" class="submit-btn">
               <span class="lang-en">Sign In</span>
               <span class="lang-ja" style="display:none;">ログイン</span>
             </button>
+            <div class="login-error" id="login-error"></div>
           </form>
         </div>
 
@@ -688,6 +1089,7 @@
             <span class="lang-ja" style="display:none;">解答スピードや正答率を多角的に分析し、現在の習熟度を可視化します。</span>
           </div>
         </div>
+
         <div class="feature-card">
           <div class="feature-img feature-2"></div>
           <div class="feature-body">
@@ -699,6 +1101,7 @@
             <span class="lang-ja" style="display:none;">間違えた問題の傾向から根本的なつまずき原因を特定し、重点的に出題します。</span>
           </div>
         </div>
+
         <div class="feature-card">
           <div class="feature-img feature-3"></div>
           <div class="feature-body">
@@ -717,6 +1120,7 @@
           <span class="lang-en">System Overview & Guidelines</span>
           <span class="lang-ja" style="display:none;">システム概要・利用案内</span>
         </h3>
+
         <div class="info-grid">
           <div class="info-box">
             <strong>
@@ -726,6 +1130,7 @@
             <span class="lang-en">Covers all junior high math units. Automatically extracts weaknesses from historical answers to optimize review curricula.</span>
             <span class="lang-ja" style="display:none;">中学数学の全単元に対応。演習問題の解答履歴から弱点を自動抽出し、復習用カリキュラムを随時最適化します。</span>
           </div>
+
           <div class="info-box">
             <strong>
               <span class="lang-en">System Requirements</span>
@@ -734,6 +1139,7 @@
             <span class="lang-en">Compatible with modern web browsers on PCs, tablets, and smartphones. Please use a stable connection.</span>
             <span class="lang-ja" style="display:none;">PC、タブレット、スマートフォン各端末のブラウザに対応しています。安定した通信環境下でご利用ください。</span>
           </div>
+
           <div class="info-box">
             <strong>
               <span class="lang-en">Operation & Inquiries</span>
@@ -746,16 +1152,183 @@
       </div>
     </div>
 
-    <footer>
+    <div id="learning-screen">
+      <div class="learning-top">
+        <div class="welcome-area">
+          <h1>
+            <span class="lang-en">Welcome, <span id="display-name">Student</span></span>
+            <span class="lang-ja" style="display:none;">ようこそ、<span id="display-name-ja">Student</span>さん</span>
+          </h1>
+          <p>
+            <span class="lang-en">Your personalized junior high mathematics learning dashboard.</span>
+            <span class="lang-ja" style="display:none;">中学数学の個別学習ダッシュボードです。</span>
+          </p>
+        </div>
+
+        <div class="account-actions">
+          <button class="secondary-btn" id="rename-btn">
+            <span class="lang-en">Change Name</span>
+            <span class="lang-ja" style="display:none;">名前を変更</span>
+          </button>
+          <button class="danger-btn" id="logout-btn">
+            <span class="lang-en">Log Out</span>
+            <span class="lang-ja" style="display:none;">ログアウト</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="stat-card">
+          <div class="stat-label">
+            <span class="lang-en">Problems Solved</span>
+            <span class="lang-ja" style="display:none;">解いた問題数</span>
+          </div>
+          <div class="stat-value" id="stat-solved">1,284</div>
+          <div class="stat-small">
+            <span class="lang-en">including previous practice</span>
+            <span class="lang-ja" style="display:none;">過去の演習を含む</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">
+            <span class="lang-en">Accuracy</span>
+            <span class="lang-ja" style="display:none;">正答率</span>
+          </div>
+          <div class="stat-value" id="stat-accuracy">91.7%</div>
+          <div class="stat-small">
+            <span class="lang-en">overall performance</span>
+            <span class="lang-ja" style="display:none;">全体の成績</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">
+            <span class="lang-en">Study Time</span>
+            <span class="lang-ja" style="display:none;">学習時間</span>
+          </div>
+          <div class="stat-value" id="stat-time">48h 26m</div>
+          <div class="stat-small">
+            <span class="lang-en">total learning time</span>
+            <span class="lang-ja" style="display:none;">累計学習時間</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <h2>
+          <span class="lang-en">Previous Statistics</span>
+          <span class="lang-ja" style="display:none;">過去の学習統計</span>
+        </h2>
+
+        <div class="history-list">
+          <div class="history-row">
+            <span>2026/08/14</span>
+            <span>92%</span>
+            <span>46 problems</span>
+            <span>38 min</span>
+          </div>
+          <div class="history-row">
+            <span>2026/08/13</span>
+            <span>89%</span>
+            <span>52 problems</span>
+            <span>44 min</span>
+          </div>
+          <div class="history-row">
+            <span>2026/08/12</span>
+            <span>95%</span>
+            <span>61 problems</span>
+            <span>51 min</span>
+          </div>
+          <div class="history-row">
+            <span>2026/08/11</span>
+            <span>87%</span>
+            <span>43 problems</span>
+            <span>36 min</span>
+          </div>
+          <div class="history-row">
+            <span>2026/08/09</span>
+            <span>93%</span>
+            <span>57 problems</span>
+            <span>49 min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="start-panel" id="start-panel">
+        <div>
+          <h2>
+            <span class="lang-en">Ready to start learning?</span>
+            <span class="lang-ja" style="display:none;">学習を始めますか？</span>
+          </h2>
+          <p>
+            <span class="lang-en">Problems are automatically generated from junior high mathematics topics.</span>
+            <span class="lang-ja" style="display:none;">中学数学のさまざまな単元から問題を自動生成します。</span>
+          </p>
+        </div>
+
+        <button class="start-btn" id="start-learning-btn">
+          <span class="lang-en">Start Learning</span>
+          <span class="lang-ja" style="display:none;">学習スタート</span>
+        </button>
+      </div>
+
+      <div class="problem-section" id="problem-section">
+        <div class="problem-header">
+          <div class="problem-number" id="problem-number">Problem 1</div>
+          <div class="problem-type" id="problem-type">Algebra</div>
+        </div>
+
+        <div class="problem-text" id="problem-text"></div>
+
+        <div class="answer-area" id="answer-area"></div>
+
+        <button class="answer-submit" id="answer-submit">
+          <span class="lang-en">Submit Answer</span>
+          <span class="lang-ja" style="display:none;">解答する</span>
+        </button>
+
+        <div class="answer-result" id="answer-result"></div>
+
+        <button class="next-btn" id="next-btn">
+          <span class="lang-en">Next Problem</span>
+          <span class="lang-ja" style="display:none;">次の問題</span>
+        </button>
+      </div>
+    </div>
+
+    <footer id="main-footer">
       <div class="footer-brand">
         <svg class="footer-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-          <rect width="40" height="40" rx="8" fill="#0f172a" />
+          <rect width="40" height="40" rx="8" fill="#0f172a"/>
           <path d="M10 28L28 10M14 10H30V26" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <span>Education Technologies Corp.</span>
       </div>
       <div>&copy; Education Technologies Corp. All rights reserved.</div>
     </footer>
+  </div>
+
+  <div class="name-dialog" id="name-dialog">
+    <div class="name-dialog-card">
+      <h3>
+        <span class="lang-en">Change Display Name</span>
+        <span class="lang-ja" style="display:none;">表示名を変更</span>
+      </h3>
+
+      <input type="text" id="name-input" maxlength="30">
+
+      <div class="dialog-actions">
+        <button id="cancel-name">
+          <span class="lang-en">Cancel</span>
+          <span class="lang-ja" style="display:none;">キャンセル</span>
+        </button>
+        <button class="save-name" id="save-name">
+          <span class="lang-en">Save</span>
+          <span class="lang-ja" style="display:none;">保存</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <div id="launcher">
@@ -766,18 +1339,21 @@
         <div class="lang-option lang-opt-ja">JP</div>
       </div>
     </div>
+
     <div class="launcher-controls">
       <div class="ctrl-row">
         <span class="launcher-label-text">
           <span class="lang-en">Application Launcher</span>
           <span class="lang-ja" style="display:none;">アプリケーションランチャー</span>
         </span>
+
         <label class="toggle-label">
-          <input type="checkbox" id="iframe-toggle" checked> 
+          <input type="checkbox" id="iframe-toggle" checked>
           <span class="lang-en">Enable in-site display (iframe)</span>
           <span class="lang-ja" style="display:none;">サイト内表示 (iframe) を有効にする</span>
         </label>
       </div>
+
       <div class="input-group">
         <input type="text" id="custom-url-input" class="launcher-input" placeholder="https://..." autocomplete="off">
         <button id="custom-url-btn" class="btn-launch">
@@ -785,11 +1361,13 @@
           <span class="lang-ja" style="display:none;">開く</span>
         </button>
       </div>
+
       <input type="text" id="search-input" class="launcher-input" data-placeholder-en="Search sites..." data-placeholder-ja="サイトを検索..." placeholder="Search sites..." autocomplete="off">
     </div>
 
     <div class="launcher-grid" id="grid">
       <div class="launcher-card" data-url="https://math.wales/"><div class="launcher-title">math.wales</div></div>
+      <div class="launcher-card" data-url="https://browser.lol/en"><div class="launcher-title">browser.lol</div></div>
       <div class="launcher-card" data-url="https://unblockedbloxd.com/"><div class="launcher-title">unblockedbloxd.com</div></div>
       <div class="launcher-card" data-url="https://unblockedbloxd.us"><div class="launcher-title">unblockedbloxd.us</div></div>
       <div class="launcher-card" data-url="https://bloxdunblocked.com/"><div class="launcher-title">bloxdunblocked.com</div></div>
@@ -831,32 +1409,240 @@
     </div>
   </div>
 
-  <iframe id="game-iframe" 
+  <iframe id="game-iframe"
     sandbox="allow-downloads allow-downloads-without-user-activation allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation allow-top-navigation-by-user-activation allow-top-navigation-to-custom-protocols"
     allow="accelerometer; ambient-light-sensor; attribution-reporting; autoplay; bluetooth; browsing-topics; camera; clipboard-read; clipboard-write; compute-pressure; cross-origin-isolated; direct-sockets; display-capture; encrypted-media; gamepad; geolocation; gyroscope; hid; identity-credentials-get; idle-detection; local-fonts; magnetometer; microphone; midi; otp-credentials; payment; picture-in-picture; private-aggregation; publickey-credentials-get; screen-wake-lock; serial; speaker-selection; storage-access; usb; web-share; window-management; xr-spatial-tracking">
   </iframe>
 
   <script>
-    document.getElementById('login-form').addEventListener('submit', (e) => {
+    const siteTitle = document.getElementById('site-title');
+    const loginForm = document.getElementById('login-form');
+    const studentIdInput = document.getElementById('student-id');
+    const passwordInput = document.getElementById('student-password');
+    const loginError = document.getElementById('login-error');
+    const loginContent = document.getElementById('login-content');
+    const learningScreen = document.getElementById('learning-screen');
+    const mainFooter = document.getElementById('main-footer');
+    const displayName = document.getElementById('display-name');
+    const displayNameJa = document.getElementById('display-name-ja');
+
+    const STORAGE_KEY = 'ai_math_drill_accounts_v1';
+    const SESSION_KEY = 'ai_math_drill_current_account_v1';
+
+    let currentAccount = null;
+    let currentProblem = null;
+    let selectedChoice = null;
+    let questionNumber = 0;
+
+    function getAccounts() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch {
+        return {};
+      }
+    }
+
+    function saveAccounts(accounts) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts));
+    }
+
+    function normalizeEightDigits(value) {
+      return String(value || '').replace(/\D/g, '').slice(0, 8);
+    }
+
+    function validEightDigits(value) {
+      return /^\d{8}$/.test(value);
+    }
+
+    function makeDefaultAccount(id) {
+      return {
+        id,
+        name: 'Student ' + id.slice(-4),
+        solved: 1284,
+        correct: 1177,
+        studyMinutes: 2906,
+        createdAt: Date.now(),
+        currentSolved: 0,
+        currentCorrect: 0,
+        currentMinutes: 0
+      };
+    }
+
+    function saveCurrentAccount() {
+      if (!currentAccount) return;
+      const accounts = getAccounts();
+      accounts[currentAccount.id] = currentAccount;
+      saveAccounts(accounts);
+      localStorage.setItem(SESSION_KEY, currentAccount.id);
+    }
+
+    function loadCurrentAccount() {
+      const id = localStorage.getItem(SESSION_KEY);
+      if (!id || !validEightDigits(id)) return false;
+
+      const accounts = getAccounts();
+
+      if (!accounts[id]) {
+        accounts[id] = makeDefaultAccount(id);
+        saveAccounts(accounts);
+      }
+
+      currentAccount = accounts[id];
+      showLearningScreen();
+      return true;
+    }
+
+    function updateAccountDisplay() {
+      if (!currentAccount) return;
+
+      displayName.textContent = currentAccount.name;
+      displayNameJa.textContent = currentAccount.name;
+
+      const solved = Number(currentAccount.solved || 0);
+      const correct = Number(currentAccount.correct || 0);
+      const minutes = Number(currentAccount.studyMinutes || 0);
+
+      const accuracy = solved > 0 ? ((correct / solved) * 100).toFixed(1) : '0.0';
+
+      document.getElementById('stat-solved').textContent = solved.toLocaleString();
+      document.getElementById('stat-accuracy').textContent = accuracy + '%';
+
+      const hours = Math.floor(minutes / 60);
+      const mins = minutes % 60;
+
+      document.getElementById('stat-time').textContent = hours + 'h ' + mins + 'm';
+    }
+
+    function showLearningScreen() {
+      loginContent.style.display = 'none';
+      mainFooter.style.display = 'none';
+      learningScreen.style.display = 'flex';
+      updateAccountDisplay();
+
+      const isEn = document.body.classList.contains('en-mode');
+      siteTitle.textContent = isEn
+        ? 'Ai-Math-Drill/MasterPro | Learning'
+        : 'Ai-Math-Drill/MasterPro | 学習';
+    }
+
+    function showLoginScreen() {
+      loginContent.style.display = 'flex';
+      mainFooter.style.display = 'flex';
+      learningScreen.style.display = 'none';
+
+      siteTitle.textContent = document.body.classList.contains('en-mode')
+        ? 'Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform'
+        : 'Ai-Math-Drill/MasterPro | 次世代型AI学習プラットフォーム';
+    }
+
+    function login(id) {
+      const accounts = getAccounts();
+
+      if (!accounts[id]) {
+        accounts[id] = makeDefaultAccount(id);
+        saveAccounts(accounts);
+      }
+
+      currentAccount = accounts[id];
+      localStorage.setItem(SESSION_KEY, id);
+      loginError.textContent = '';
+      showLearningScreen();
+    }
+
+    loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      const id = normalizeEightDigits(studentIdInput.value);
+      const password = normalizeEightDigits(passwordInput.value);
+
+      studentIdInput.value = id;
+      passwordInput.value = password;
+
+      if (!validEightDigits(id) || !validEightDigits(password)) {
+        const isEn = document.body.classList.contains('en-mode');
+
+        loginError.textContent = isEn
+          ? 'Student ID and password must both be exactly 8 digits.'
+          : '受講生IDとパスワードはどちらも8桁の数字で入力してください。';
+
+        return;
+      }
+
+      login(id);
     });
 
-    const siteTitle = document.getElementById('site-title');
+    [studentIdInput, passwordInput].forEach(input => {
+      input.addEventListener('input', function() {
+        this.value = normalizeEightDigits(this.value);
+        loginError.textContent = '';
+      });
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', function() {
+      localStorage.removeItem(SESSION_KEY);
+      currentAccount = null;
+      currentProblem = null;
+      showLoginScreen();
+      loginForm.reset();
+      loginError.textContent = '';
+    });
+
+    const nameDialog = document.getElementById('name-dialog');
+    const nameInput = document.getElementById('name-input');
+
+    document.getElementById('rename-btn').addEventListener('click', function() {
+      if (!currentAccount) return;
+      nameInput.value = currentAccount.name || '';
+      nameDialog.style.display = 'flex';
+      setTimeout(() => nameInput.focus(), 50);
+    });
+
+    document.getElementById('cancel-name').addEventListener('click', function() {
+      nameDialog.style.display = 'none';
+    });
+
+    document.getElementById('save-name').addEventListener('click', function() {
+      if (!currentAccount) return;
+
+      const name = nameInput.value.trim();
+
+      if (name) {
+        currentAccount.name = name;
+        saveCurrentAccount();
+        updateAccountDisplay();
+      }
+
+      nameDialog.style.display = 'none';
+    });
+
+    nameDialog.addEventListener('click', function(e) {
+      if (e.target === nameDialog) {
+        nameDialog.style.display = 'none';
+      }
+    });
+
     const searchInput = document.getElementById('search-input');
 
     function updatePageTitle(isEn) {
       const launcherActive = document.getElementById('launcher').style.display === 'flex';
+
       if (launcherActive) {
-        siteTitle.textContent = isEn ? "App Launcher" : "アプリランチャー";
+        siteTitle.textContent = isEn ? 'App Launcher' : 'アプリランチャー';
+      } else if (currentAccount) {
+        siteTitle.textContent = isEn
+          ? 'Ai-Math-Drill/MasterPro | Learning'
+          : 'Ai-Math-Drill/MasterPro | 学習';
       } else {
-        siteTitle.textContent = isEn ? "Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform" : "Ai-Math-Drill/MasterPro | 次世代型AI学習プラットフォーム";
+        siteTitle.textContent = isEn
+          ? 'Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform'
+          : 'Ai-Math-Drill/MasterPro | 次世代型AI学習プラットフォーム';
       }
     }
 
     function toggleLanguage() {
       const body = document.body;
       const isEn = body.classList.toggle('en-mode');
-      
+
       document.querySelectorAll('#lang-switch, #launcher-lang-switch').forEach(sw => {
         if (isEn) {
           sw.classList.add('en');
@@ -864,94 +1650,536 @@
           sw.classList.remove('en');
         }
       });
-      
+
       document.querySelectorAll('.lang-en').forEach(el => {
         el.style.display = isEn ? 'inline' : 'none';
       });
+
       document.querySelectorAll('.lang-ja').forEach(el => {
         el.style.display = isEn ? 'none' : 'inline';
       });
 
       document.querySelectorAll('input[data-placeholder-en]').forEach(input => {
-        input.placeholder = isEn ? input.getAttribute('data-placeholder-en') : input.getAttribute('data-placeholder-ja');
+        input.placeholder = isEn
+          ? input.getAttribute('data-placeholder-en')
+          : input.getAttribute('data-placeholder-ja');
       });
-      
+
       updatePageTitle(isEn);
+
+      if (currentProblem) {
+        renderProblem(currentProblem);
+      }
     }
 
-    const langSwitch = document.getElementById('lang-switch');
-    const launcherLangSwitch = document.getElementById('launcher-lang-switch');
-    
-    langSwitch.addEventListener('click', toggleLanguage);
-    launcherLangSwitch.addEventListener('click', toggleLanguage);
+    document.getElementById('lang-switch').addEventListener('click', toggleLanguage);
+    document.getElementById('launcher-lang-switch').addEventListener('click', toggleLanguage);
 
     let clickCount = 0;
     let lastClickTime = 0;
-    
-    document.getElementById('secret-trigger').addEventListener('click', () => {
-      const currentTime = new Date().getTime();
+
+    document.getElementById('secret-trigger').addEventListener('click', function() {
+      const currentTime = Date.now();
+
       if (currentTime - lastClickTime < 600) {
         clickCount++;
       } else {
         clickCount = 1;
       }
+
       lastClickTime = currentTime;
 
       if (clickCount >= 5) {
         document.getElementById('camouflage').style.display = 'none';
         document.getElementById('launcher').style.display = 'flex';
+
         const isEn = document.body.classList.contains('en-mode');
         updatePageTitle(isEn);
+
         clickCount = 0;
       }
     });
 
-    const iframe = document.getElementById("game-iframe");
-    const launcher = document.getElementById("launcher");
-    const customUrlInput = document.getElementById("custom-url-input");
-    const customUrlBtn = document.getElementById("custom-url-btn");
-    const cards = document.querySelectorAll(".launcher-card");
-    const iframeToggle = document.getElementById("iframe-toggle");
+    const iframe = document.getElementById('game-iframe');
+    const launcher = document.getElementById('launcher');
+    const customUrlInput = document.getElementById('custom-url-input');
+    const customUrlBtn = document.getElementById('custom-url-btn');
+    const cards = document.querySelectorAll('.launcher-card');
+    const iframeToggle = document.getElementById('iframe-toggle');
 
     function openApp(url) {
       if (!url.startsWith('http://') && !url.startsWith('https://')) {
         url = 'https://' + url;
       }
-      
+
       if (iframeToggle.checked) {
         iframe.src = url;
-        iframe.style.display = "block";
-        launcher.style.display = "none";
+        iframe.style.display = 'block';
+        launcher.style.display = 'none';
       } else {
         window.location.href = url;
       }
     }
 
-    searchInput.addEventListener("input", (e) => {
+    searchInput.addEventListener('input', function(e) {
       const keyword = e.target.value.toLowerCase();
+
       cards.forEach(card => {
-        const title = card.querySelector(".launcher-title").textContent.toLowerCase();
-        card.style.display = title.includes(keyword) ? "block" : "none";
+        const title = card.querySelector('.launcher-title').textContent.toLowerCase();
+        card.style.display = title.includes(keyword) ? 'block' : 'none';
       });
     });
 
     cards.forEach(card => {
-      card.addEventListener("click", () => {
+      card.addEventListener('click', function() {
         openApp(card.dataset.url);
       });
     });
 
-    customUrlBtn.addEventListener("click", () => {
+    customUrlBtn.addEventListener('click', function() {
       const url = customUrlInput.value.trim();
-      if (url !== "") openApp(url);
+      if (url) openApp(url);
     });
 
-    customUrlInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
+    customUrlInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
         const url = customUrlInput.value.trim();
-        if (url !== "") openApp(url);
+        if (url) openApp(url);
       }
     });
+
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function gcd(a, b) {
+      a = Math.abs(a);
+      b = Math.abs(b);
+
+      while (b) {
+        const temp = a % b;
+        a = b;
+        b = temp;
+      }
+
+      return a;
+    }
+
+    function fraction(n, d) {
+      if (d < 0) {
+        n *= -1;
+        d *= -1;
+      }
+
+      const g = gcd(n, d);
+      return [n / g, d / g];
+    }
+
+    function fractionString(n, d) {
+      const f = fraction(n, d);
+
+      if (f[1] === 1) return String(f[0]);
+      return f[0] + '/' + f[1];
+    }
+
+    function makeProblem() {
+      const type = randomInt(0, 11);
+
+      if (type === 0) {
+        const x = randomInt(-9, 12);
+        const a = randomInt(2, 9);
+        const b = randomInt(-15, 15);
+        const c = a * x + b;
+
+        return {
+          type: 'algebra',
+          answer: String(x),
+          textEn: `Solve for x:\n${a}x ${b >= 0 ? '+ ' + b : '- ' + Math.abs(b)} = ${c}`,
+          textJa: `x の値を求めなさい。\n${a}x ${b >= 0 ? '+ ' + b : '- ' + Math.abs(b)} = ${c}`
+        };
+      }
+
+      if (type === 1) {
+        const a = randomInt(2, 9);
+        const b = randomInt(2, 9);
+        const x = randomInt(2, 12);
+        const y = randomInt(1, 10);
+        const c = a * x + b * y;
+        const d = a * x - b * y;
+
+        return {
+          type: 'equation',
+          answer: String(d),
+          textEn: `Calculate:\n${a} × ${x} - ${b} × ${y}`,
+          textJa: `計算しなさい。\n${a} × ${x} - ${b} × ${y}`
+        };
+      }
+
+      if (type === 2) {
+        const x = randomInt(2, 15);
+        const y = randomInt(2, 15);
+        const answer = x * y;
+
+        return {
+          type: 'geometry',
+          answer: String(answer),
+          textEn: `A rectangle has a length of ${x} cm and a width of ${y} cm. What is its area in cm²?`,
+          textJa: `縦 ${x} cm、横 ${y} cm の長方形があります。面積は何 cm² ですか。`
+        };
+      }
+
+      if (type === 3) {
+        const base = randomInt(4, 16);
+        const height = randomInt(3, 14);
+        const answer = base * height / 2;
+
+        return {
+          type: 'geometry',
+          answer: String(answer),
+          textEn: `A triangle has a base of ${base} cm and a height of ${height} cm. What is its area in cm²?`,
+          textJa: `底辺 ${base} cm、高さ ${height} cm の三角形があります。面積は何 cm² ですか。`
+        };
+      }
+
+      if (type === 4) {
+        const p = randomInt(2, 9);
+        const q = randomInt(2, 9);
+        const answer = p * q;
+
+        const choices = [
+          String(answer),
+          String(answer + randomInt(1, 5)),
+          String(Math.max(1, answer - randomInt(1, 5))),
+          String(answer + randomInt(6, 12))
+        ].sort(() => Math.random() - 0.5);
+
+        return {
+          type: 'multiple',
+          answer: String(answer),
+          choices,
+          textEn: `What is ${p} × ${q}?`,
+          textJa: `${p} × ${q} の答えはどれですか。`
+        };
+      }
+
+      if (type === 5) {
+        const a = randomInt(2, 8);
+        const b = randomInt(2, 8);
+        const answer = a * b;
+
+        return {
+          type: 'multiple',
+          answer: String(answer),
+          choices: [
+            String(answer),
+            String(answer + 3),
+            String(answer - 2),
+            String(answer + 7)
+          ].sort(() => Math.random() - 0.5),
+          textEn: `Which is the value of ${a} × ${b}?`,
+          textJa: `${a} × ${b} の値として正しいものを選びなさい。`
+        };
+      }
+
+      if (type === 6) {
+        const speed = randomInt(20, 80);
+        const time = randomInt(2, 5);
+        const answer = speed * time;
+
+        return {
+          type: 'word',
+          answer: String(answer),
+          textEn: `A car travels at ${speed} km/h for ${time} hours. How many kilometers does it travel?`,
+          textJa: `時速 ${speed} km で ${time} 時間走る車があります。何 km 進みますか。`
+        };
+      }
+
+      if (type === 7) {
+        const a = randomInt(3, 12);
+        const b = randomInt(2, 9);
+        const answer = a + b;
+
+        return {
+          type: 'algebra',
+          answer: String(answer),
+          textEn: `If x = ${a}, calculate x + ${b}.`,
+          textJa: `x = ${a} のとき、x + ${b} の値を求めなさい。`
+        };
+      }
+
+      if (type === 8) {
+        const numerator = randomInt(1, 5);
+        const denominator = randomInt(2, 8);
+        const multiplier = randomInt(2, 5);
+        const answer = fractionString(numerator * multiplier, denominator);
+
+        return {
+          type: 'fraction',
+          answer,
+          textEn: `Calculate:\n${numerator}/${denominator} × ${multiplier}`,
+          textJa: `計算しなさい。\n${numerator}/${denominator} × ${multiplier}`
+        };
+      }
+
+      if (type === 9) {
+        const a = randomInt(3, 12);
+        const b = randomInt(3, 12);
+        const answer = a * a + b * b;
+
+        return {
+          type: 'geometry',
+          answer: String(answer),
+          textEn: `A right triangle has legs of ${a} cm and ${b} cm. What is the sum of the squares of the two legs?`,
+          textJa: `直角三角形の2辺の長さが ${a} cm と ${b} cm です。2辺の長さの2乗の和を求めなさい。`
+        };
+      }
+
+      if (type === 10) {
+        const x = randomInt(2, 10);
+        const answer = x * 3;
+
+        return {
+          type: 'proportion',
+          answer: String(answer),
+          textEn: `If 1 notebook costs ${x} dollars, how much do 3 notebooks cost?`,
+          textJa: `ノート1冊が ${x} 円だとすると、3冊では何円ですか。`
+        };
+      }
+
+      const a = randomInt(2, 12);
+      const b = randomInt(2, 12);
+      const answer = a * b;
+
+      return {
+        type: 'statistics',
+        answer: String(answer),
+        textEn: `A rectangle is ${a} cm long and ${b} cm wide. What is its perimeter in cm?`,
+        textJa: `縦 ${a} cm、横 ${b} cm の長方形があります。周の長さは何 cm ですか。`,
+        perimeter: true,
+        answer: String((a + b) * 2)
+      };
+    }
+
+    function typeLabel(type) {
+      const labels = {
+        algebra: ['Algebra', '代数'],
+        equation: ['Calculation', '計算'],
+        geometry: ['Geometry', '図形'],
+        multiple: ['Multiple Choice', '選択問題'],
+        word: ['Word Problem', '文章問題'],
+        fraction: ['Fractions', '分数'],
+        proportion: ['Proportion', '比例'],
+        statistics: ['Geometry', '図形']
+      };
+
+      return labels[type] || ['Mathematics', '数学'];
+    }
+
+    function normalizeAnswer(value) {
+      let v = String(value || '').trim().toLowerCase();
+
+      v = v
+        .replace(/\s+/g, '')
+        .replace(/＋/g, '+')
+        .replace(/－/g, '-')
+        .replace(/／/g, '/')
+        .replace(/．/g, '.')
+        .replace(/。/g, '');
+
+      if (v.includes('/')) {
+        const parts = v.split('/');
+
+        if (parts.length === 2 && !isNaN(Number(parts[0])) && !isNaN(Number(parts[1])) && Number(parts[1]) !== 0) {
+          return fractionString(Number(parts[0]), Number(parts[1]));
+        }
+      }
+
+      if (v !== '' && !isNaN(Number(v))) {
+        const n = Number(v);
+
+        if (Number.isInteger(n)) {
+          return String(n);
+        }
+
+        return String(Number(n.toFixed(10)));
+      }
+
+      return v;
+    }
+
+    function renderProblem(problem) {
+      const isEn = document.body.classList.contains('en-mode');
+      const type = typeLabel(problem.type);
+
+      document.getElementById('problem-number').textContent = isEn
+        ? `Problem ${questionNumber}`
+        : `問題 ${questionNumber}`;
+
+      document.getElementById('problem-type').textContent = isEn ? type[0] : type[1];
+      document.getElementById('problem-text').textContent = isEn ? problem.textEn : problem.textJa;
+
+      const answerArea = document.getElementById('answer-area');
+      answerArea.innerHTML = '';
+      selectedChoice = null;
+
+      if (problem.choices) {
+        problem.choices.forEach(choice => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'choice-btn';
+          button.textContent = choice;
+
+          button.addEventListener('click', function() {
+            document.querySelectorAll('.choice-btn').forEach(btn => {
+              btn.classList.remove('selected');
+            });
+
+            this.classList.add('selected');
+            selectedChoice = choice;
+          });
+
+          answerArea.appendChild(button);
+        });
+      } else {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.inputMode = 'decimal';
+        input.className = 'answer-input';
+        input.id = 'problem-answer-input';
+
+        input.placeholder = isEn
+          ? 'Enter your answer'
+          : '答えを入力してください';
+
+        input.autocomplete = 'off';
+
+        answerArea.appendChild(input);
+
+        setTimeout(() => input.focus(), 50);
+      }
+
+      document.getElementById('answer-result').textContent = '';
+      document.getElementById('answer-result').className = 'answer-result';
+      document.getElementById('next-btn').style.display = 'none';
+      document.getElementById('answer-submit').style.display = 'block';
+    }
+
+    function startLearning() {
+      document.getElementById('start-panel').style.display = 'none';
+      document.getElementById('problem-section').style.display = 'block';
+
+      questionNumber = 1;
+      currentProblem = makeProblem();
+      renderProblem(currentProblem);
+
+      document.getElementById('problem-section').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    document.getElementById('start-learning-btn').addEventListener('click', startLearning);
+
+    document.getElementById('answer-submit').addEventListener('click', function() {
+      if (!currentProblem || !currentAccount) return;
+
+      let userAnswer = selectedChoice;
+
+      if (!currentProblem.choices) {
+        const input = document.getElementById('problem-answer-input');
+        userAnswer = input ? input.value : '';
+      }
+
+      if (String(userAnswer || '').trim() === '') {
+        const isEn = document.body.classList.contains('en-mode');
+
+        document.getElementById('answer-result').textContent = isEn
+          ? 'Please enter or select an answer.'
+          : '答えを入力または選択してください。';
+
+        document.getElementById('answer-result').className = 'answer-result incorrect';
+        return;
+      }
+
+      const correct = normalizeAnswer(userAnswer) === normalizeAnswer(currentProblem.answer);
+
+      currentAccount.solved = Number(currentAccount.solved || 0) + 1;
+      currentAccount.currentSolved = Number(currentAccount.currentSolved || 0) + 1;
+
+      if (correct) {
+        currentAccount.correct = Number(currentAccount.correct || 0) + 1;
+        currentAccount.currentCorrect = Number(currentAccount.currentCorrect || 0) + 1;
+      }
+
+      currentAccount.studyMinutes = Number(currentAccount.studyMinutes || 0) + 1;
+      currentAccount.currentMinutes = Number(currentAccount.currentMinutes || 0) + 1;
+
+      saveCurrentAccount();
+      updateAccountDisplay();
+
+      const isEn = document.body.classList.contains('en-mode');
+      const result = document.getElementById('answer-result');
+
+      if (correct) {
+        result.textContent = isEn
+          ? 'Correct! Great job.'
+          : '正解です。よくできました。';
+
+        result.className = 'answer-result correct';
+      } else {
+        result.textContent = isEn
+          ? `Incorrect. The correct answer is ${currentProblem.answer}.`
+          : `不正解です。正しい答えは ${currentProblem.answer} です。`;
+
+        result.className = 'answer-result incorrect';
+      }
+
+      document.getElementById('answer-submit').style.display = 'none';
+      document.getElementById('next-btn').style.display = 'block';
+    });
+
+    document.getElementById('next-btn').addEventListener('click', function() {
+      questionNumber++;
+      currentProblem = makeProblem();
+      renderProblem(currentProblem);
+    });
+
+    studentPasswordInputFix();
+
+    function studentPasswordInputFix() {
+      passwordInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          loginForm.requestSubmit();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && currentProblem) {
+        const submit = document.getElementById('answer-submit');
+
+        if (submit.style.display !== 'none') {
+          const active = document.activeElement;
+
+          if (active && active.id === 'problem-answer-input') {
+            e.preventDefault();
+            submit.click();
+          }
+        }
+      }
+    });
+
+    document.querySelectorAll('.lang-en').forEach(el => {
+      el.style.display = 'inline';
+    });
+
+    document.querySelectorAll('.lang-ja').forEach(el => {
+      el.style.display = 'none';
+    });
+
+    if (!loadCurrentAccount()) {
+      showLoginScreen();
+    }
   </script>
 </body>
 </html>
