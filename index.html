@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title id="site-title">Ai-Math-Drill/MasterPro | Next-Gen AI Learning Platform</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><path d='M8 12h16M8 16h12M8 20h8' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round'/><circle cx='22' cy='20' r='2' fill='%2338bdf8'/></svg>">
   <style>
@@ -21,6 +21,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-text-size-adjust: 100%;
     }
 
     html, body {
@@ -45,25 +46,29 @@
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      padding: 16px 32px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
       box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       cursor: default;
       user-select: none;
+      max-width: 100%;
+      min-width: 0;
     }
 
     .brand-logo-svg {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       flex-shrink: 0;
       filter: drop-shadow(0 2px 4px rgba(15,23,42,0.15));
     }
@@ -71,10 +76,11 @@
     .brand-text {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .brand-title {
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 800;
       letter-spacing: -0.01em;
       color: var(--text-main);
@@ -82,6 +88,7 @@
       align-items: center;
       gap: 4px;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      flex-wrap: wrap;
     }
 
     .brand-title .main-name {
@@ -99,7 +106,7 @@
     }
 
     .brand-title .sub-name {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: #2563eb;
       background: #eff6ff;
@@ -116,12 +123,16 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .lang-switch {
@@ -132,19 +143,20 @@
       padding: 3px;
       position: relative;
       cursor: pointer;
-      width: 140px;
-      height: 34px;
+      width: 130px;
+      height: 32px;
       user-select: none;
+      flex-shrink: 0;
     }
 
     .lang-switch-handle {
       position: absolute;
       top: 3px;
       left: 3px;
-      width: 67px;
-      height: 26px;
+      width: 60px;
+      height: 24px;
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -154,7 +166,7 @@
     }
 
     .lang-switch:not(.en) .lang-switch-handle {
-      transform: translateX(67px);
+      transform: translateX(60px);
     }
 
     .lang-option {
@@ -162,7 +174,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--text-muted);
       z-index: 1;
@@ -175,30 +187,31 @@
     }
 
     .header-tag {
-      font-size: 12px;
+      font-size: 11px;
       background: #f1f5f9;
       color: var(--text-muted);
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 6px;
       font-weight: 600;
       border: 1px solid var(--border);
+      white-space: nowrap;
     }
 
     .content-wrapper {
       max-width: 1200px;
       width: 100%;
       margin: 0 auto;
-      padding: 32px 24px;
+      padding: 24px 16px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 24px;
       flex: 1;
     }
 
     .top-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 20px;
       align-items: stretch;
     }
 
@@ -206,7 +219,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 36px;
+      padding: 28px;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
       display: flex;
       flex-direction: column;
@@ -231,32 +244,33 @@
     }
 
     .login-card h2 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
 
     .login-card p {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .form-group label {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       margin-bottom: 6px;
     }
 
     .form-control {
       width: 100%;
-      padding: 12px 14px;
+      padding: 10px 12px;
       border: 1px solid var(--border);
       border-radius: 8px;
       font-size: 14px;
@@ -280,7 +294,7 @@
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 8px;
+      margin-top: 6px;
       transition: background 0.2s;
     }
 
@@ -300,14 +314,14 @@
 
     .banner-img {
       width: 100%;
-      height: 180px;
+      height: 150px;
       background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
     }
 
     .banner-body {
-      padding: 28px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -315,7 +329,7 @@
     }
 
     .banner-body h3 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       margin-bottom: 8px;
     }
@@ -329,7 +343,7 @@
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
     }
 
     .feature-card {
@@ -344,7 +358,7 @@
 
     .feature-img {
       width: 100%;
-      height: 120px;
+      height: 110px;
       background-size: cover;
       background-position: center;
     }
@@ -354,7 +368,7 @@
     .feature-3 { background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=600&auto=format&fit=crop'); }
 
     .feature-body {
-      padding: 20px;
+      padding: 18px;
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1.6;
@@ -364,29 +378,29 @@
       color: var(--text-main);
       display: block;
       margin-bottom: 6px;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .info-section {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 32px;
+      padding: 24px;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
     }
 
     .info-section h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
     }
 
     .info-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
 
     .info-box {
@@ -399,13 +413,13 @@
       color: var(--text-main);
       display: block;
       margin-bottom: 6px;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: 24px 32px;
+      padding: 20px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -433,11 +447,11 @@
       position: fixed;
       inset: 0;
       background: #0f172a;
-      padding: 24px;
+      padding: 16px;
       overflow-y: auto;
       display: none;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
       z-index: 50;
     }
 
@@ -463,14 +477,17 @@
       justify-content: space-between;
       align-items: center;
       color: #94a3b8;
-      font-size: 14px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .toggle-label {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
+      font-size: 12px;
     }
 
     .input-group {
@@ -480,8 +497,8 @@
 
     .launcher-input {
       width: 100%;
-      padding: 12px 16px;
-      font-size: 15px;
+      padding: 10px 14px;
+      font-size: 14px;
       background: #1e293b;
       border: 1px solid #334155;
       border-radius: 8px;
@@ -494,8 +511,8 @@
     }
 
     .btn-launch {
-      padding: 0 24px;
-      font-size: 15px;
+      padding: 0 20px;
+      font-size: 14px;
       font-weight: 600;
       background: var(--accent);
       color: #fff;
@@ -507,8 +524,8 @@
 
     .launcher-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
@@ -518,7 +535,7 @@
       background: #1e293b;
       border: 1px solid #334155;
       border-radius: 10px;
-      padding: 24px 16px;
+      padding: 18px 12px;
       text-align: center;
       cursor: pointer;
       transition: transform 0.15s, border-color 0.15s;
@@ -530,7 +547,7 @@
     }
 
     .launcher-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: #f1f5f9;
       word-break: break-all;
@@ -547,6 +564,9 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 10px 14px;
+      }
       .top-section {
         grid-template-columns: 1fr;
       }
@@ -555,6 +575,13 @@
       }
       .info-grid {
         grid-template-columns: 1fr;
+      }
+      .content-wrapper {
+        padding: 16px 12px;
+        gap: 16px;
+      }
+      .launcher-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
